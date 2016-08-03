@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>
+		
+		</title>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+		
+			var myDiv=document.createElement("div");
+		myDiv.setAttribute("id","main");
+		document.body.appendChild(myDiv);
+		myDiv.setAttribute("style", "background-color:red;width:900px;height:20px;margin:50px auto;");
+		document.body.setAttribute("style", "margin:0px;padding:0px;");
+		var frameDiv=document.createElement("div");
+		frameDiv.setAttribute("class", "frame");
+		document.getElementById("main").appendChild(frameDiv);
+		frameDiv.setAttribute("style", "width:100%;height:400px;overflow:hidden;background-color:black");
+		var myImg=document.createElement("img");
+		myImg.src="images/01.jpg";
+		document.getElementsByClassName("frame")[0].appendChild(myImg);
+		myImg.setAttribute("style", "width:100%;");
+		var descDiv=document.createElement("div");
+		descDiv.setAttribute("class", "desc");
+		document.getElementById("main").appendChild(descDiv);
+		descDiv.setAttribute("style", "width: cacl(100%-20px);padding:10px;background-color:lightgray;color:black");
+		var parag=document.createElement("p");
+		parag.innerHTML="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima, quae corporis ullam illo ab at magni deleniti quasi expedita, quis iusto ipsum, perferendis a hic aspernatur autem repudiandae non commodi!";
+		document.getElementsByClassName("desc")[0].appendChild(parag);
+		var btn1=document.createElement("button");
+		
+		var bt1=document.createTextNode("Prev");
+		btn1.appendChild(bt1);
+		btn1.setAttribute("class", "prevButon")
+		btn1.setAttribute("style", "padding:10px 20px;border:none;background-color:gray;color:white;float:left;")
+		document.getElementById("main").appendChild(btn1);
+		// document.getElementsByClassName("prevButton")[0].onclick=function(){prev()};
+		var btn2=document.createElement("button");
+		
+		var bt2=document.createTextNode("Next");
+		btn2.appendChild(bt2);
+		btn2.setAttribute("class", "nextButton")
+		btn2.setAttribute("style", "padding:10px 20px;border:none;background-color:gray;color:white;float:right;")
+		document.getElementById("main").appendChild(btn2);
+		// document.getElementsByClassName("nextButton")[0].addEventListener("click",next);
+		
+		
+		
+		
+			imageArr=["images/01.jpg","images/02.jpg","images/03.jpg","images/04.jpg","images/05.jpg"];
+			descArr=["images 01","images 02","images 03","images 04","images 05"];
+			imgSource=document.getElementsByTagName('img')[0];
+			descSource=document.getElementsByClassName('desc')[0].getElementsByTagName("p")[0];
+			descSource.innerHTML=descArr[0];
+			//imgSource.setAttribute('src',imageArr[1])
+			imgSource.src=imageArr[0];
+			count=0;
+			function prev(){
+				
+				count--;
+				if(count<0){
+					count=imageArr.length-1;
+				}
+				imgSource.src=imageArr[count];
+				descSource.innerHTML=descArr[count];
+				console.log(count)
+			}
+			function next(){
+				
+				count++;
+				if(count==imageArr.length){
+					count=0;
+				}
+				imgSource.src=imageArr[count];
+				descSource.innerHTML=descArr[count];
+				console.log(count)
+				
+			}
+		</script>
+	</body>
+</html>

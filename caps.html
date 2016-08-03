@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+	
+		html,body{
+			margin:0;
+			padding:0;
+		}
+		#capsMaker{
+			
+			width:900px;
+			margin:20px auto;
+		}
+		.capsFrame,.capsText,.settingFrame{
+			width:100%;
+
+		}
+		.capsFrame{
+			position:relative;
+		}
+		.imgFrame img{
+			width:100%;
+		}
+		.capsText{
+			background:red;
+			color:white;
+			padding:10px;
+			width:calc(100% - 20px);
+			position:absolute;
+			bottom:0;
+		}
+		.capsText p{
+			margin:0;
+		}
+		.settingFrame input{
+			padding:10px 20px;
+			width:calc(100% - 42px);
+			border:1px solid red;
+			margin:10px 0px;
+		}
+		.settingFrame input:focus{
+			background:lightgray;
+			color:black;
+		}
+		.settingFrame button{
+			cursor:pointer;
+			border:none;
+			background:red;
+			color:white;
+			padding:5px 10px;
+		}
+		
+	</style>
+</head>
+<body>
+	<div id="capsMaker">
+		<div class="capsFrame">
+			<div class="imgFrame">
+				<img src="images/01.jpg">
+			</div>
+			<div class="capsText">
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus numquam magni, vel earum hic, quaerat consequuntur sit explicabo saepe mollitia, cumque esse quas nulla iusto aut repellat! Alias voluptate, nisi.</p>
+			</div>
+		</div>
+		<div class="settingFrame">
+			<input type="text" placeholder="Seklinizin linkini bura daxil edin">
+			<button onclick="addImage()">ADD IMAGE</button>
+			<input type="text"  placeholder="Caps texti bura elave edin">
+			<button onclick="addText()">ADD TEXT</button>
+			<hr>
+			<button onclick="changeImageBorder()">CHANGE IMAGE BORDER</button>
+			<button onclick="changeTextBackgroundAndColor()">CHANGE TEXT BACKGROUND AND COLOR</button>
+			<button onclick="changeTextPositionToTop()">CHANGE TEXT POSITION TO TOP</button>
+		</div>
+	</div>
+	
+	<script type="text/javascript">
+		var addImage =function(){
+
+			var capsImg=document.getElementsByTagName("input")[0].value;
+			if(capsImg==""){
+				alert("Sekil yoxdur")
+			}else{
+				console.log(capsImg)
+				document.getElementsByClassName("imgFrame")[0].getElementsByTagName("img")[0].src="images/"+capsImg;
+			}
+			
+			
+		}
+
+		function addText(){
+			var capsText=document.getElementsByTagName("input")[1].value;
+			document.getElementsByClassName("capsText")[0].innerHTML="<p>"+capsText+"</p>"
+		}
+
+		 function changeImageBorder(){
+		 var myImg=document.getElementsByClassName("imgFrame")[0].getElementsByTagName("img")[0];
+		   myImg.setAttribute("style", "border:5px solid pink;")
+		 }
+
+		 function changeTextBackgroundAndColor(){
+		 	
+		 	document.getElementsByClassName("capsText")[0].setAttribute("style", "background-color:aqua;color:pink;");
+
+		 }
+
+		 function changeTextPositionToTop(){
+
+		 	document.getElementsByClassName("capsText")[0].setAttribute("style", "padding:10px; top:0;bottom:500px; ");
+
+		 }
+	</script>
+</body>
+</html>
